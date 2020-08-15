@@ -1,0 +1,56 @@
+swagger: '2.0'
+info:
+  title: London Users API
+  description: Returns users from https://bpdts-test-app.herokuapp.com/ who are listed as either
+    living in London, or whose current coordinates are within 50 miles of London.
+  version: '1.0'
+  contact:
+    name: t
+    url: 't'
+schemes:
+  - http
+produces:
+  - application/json
+paths:
+  /v1/london-users:
+    get:
+      summary: GET London Users
+      description: |
+      tags:
+        - LondonUsers
+      operationId: getLondonUsers
+      responses:
+        200:
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string
+                ip_address:
+                  type: string
+                latitude:
+                  type: number
+                longitude:
+                  type: number
+          examples:
+            application/json:
+              [
+              {
+                "id": 1,
+                "first_name": "John",
+                "last_name": "Smith",
+                "email": "johnsmith0@domain.com",
+                "ip_address": "192.57.232.111",
+                "latitude": 34.003135,
+                "longitude": -117.7228641
+              }
+              ]
